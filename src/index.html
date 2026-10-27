@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Three University of Sheffield students are climbing Kilimanjaro in August 2027 for Dig Deep, bringing clean water to Bomet County, Kenya. Follow the climb and sponsor us.">
+<meta property="og:title" content="Sheffield to the Summit">
+<meta property="og:description" content="Three Sheffield students climbing Kilimanjaro for clean water in Bomet County, Kenya.">
+<meta property="og:image" content="https://kobiecorsino.github.io/sheffield-kili/assets/kilimanjaro.jpg">
+<title>Sheffield to the Summit</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
+<style>
+html,body{margin:0}
+/* Layout: white editorial page. Story hero, a sticky scroll-driven zoom up a line-drawn Kilimanjaro, then team, cause and supporter wall as numbered sections. */
+:root {
+  --bg: #ffffff; --ink: #0b0b0b; --muted: #6f6f6f; --faint: #a6a6a6; --rule: #e6e6e6; --soft: #f6f6f4;
+  --accent: #d9782f; --accent-ink: #0b0b0b;
+  --sans: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --mono: "Space Mono", ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+.lbl { font-family: var(--mono); font-size: 11px; letter-spacing: .28em; text-transform: uppercase; color: var(--muted); }
+.lbl.ink { color: var(--ink); }
+
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(255,255,255,.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--rule); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 21; background: #fff; }
+.bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 58px; }
+.logo { font-weight: 600; letter-spacing: -.01em; }
+.bar nav { display: flex; gap: 22px; }
+.bar nav a { text-decoration: none; }
+.bar nav a:hover { color: var(--ink); }
+@media (max-width: 760px) { .bar nav { display: none; } }
+.btn { display: inline-flex; align-items: center; gap: 10px; background: var(--accent); color: var(--accent-ink); font-family: var(--mono); font-size: 12px; letter-spacing: .22em; text-transform: uppercase; text-decoration: none; padding: 12px 18px; }
+.btn:hover { background: #c96a22; }
+.btn.sm { padding: 8px 14px; font-size: 11px; }
+
+.hero-bg { position: relative; background: #ffffff url("assets/kilimanjaro.jpg") center 62% / cover no-repeat; }
+.hero-bg::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,.55) 0%, rgba(255,255,255,.62) 40%, rgba(255,255,255,.9) 78%, #ffffff 100%), linear-gradient(90deg, rgba(255,255,255,.35), rgba(255,255,255,0) 50%, rgba(255,255,255,.55)); }
+.hero-bg > .wrap { position: relative; }
+.story { background: rgba(255,255,255,.82); padding: 20px 22px; }
+@media (max-width: 900px) { .hero-bg::before { background: linear-gradient(180deg, rgba(255,255,255,.5) 0%, rgba(255,255,255,.7) 35%, rgba(255,255,255,.92) 70%, #fff 100%); } }
+.hero { padding-block: 120px 56px; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 32px 64px; align-items: end; }
+@media (max-width: 900px) { .hero { grid-template-columns: 1fr; padding-block: 44px 40px; } }
+h1 { font-weight: 600; font-size: clamp(2.6rem, 6.4vw, 5.2rem); line-height: .98; letter-spacing: -.035em; margin: 18px 0 0; text-wrap: balance; }
+.story { display: grid; gap: 18px; max-width: 34em; font-size: 1.08rem; }
+.story p { margin: 0; }
+.tally { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--ink); margin-top: 16px; }
+.tally > div { padding: 16px 16px 0 0; display: grid; gap: 6px; min-width: 0; }
+.tally .v { font-size: clamp(1.6rem, 3.6vw, 2.6rem); font-weight: 500; letter-spacing: -.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+.tally .v.acc { color: var(--accent); }
+@media (max-width: 640px) { .tally { grid-template-columns: 1fr 1fr; row-gap: 18px; } }
+.track { grid-column: 1 / -1; height: 4px; background: var(--rule); position: relative; margin-top: 4px; padding: 0 !important; }
+.track i { position: absolute; inset: 0 auto 0 0; width: 0; background: var(--ink); transition: width 1.4s cubic-bezier(.2,.8,.2,1); }
+
+.sec { padding-block: 96px 24px; }
+.head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px 40px; flex-wrap: wrap; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+h2 { font-weight: 500; font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1.02; letter-spacing: -.03em; margin: 16px 0 0; text-wrap: balance; }
+h2 em { font-style: normal; color: var(--accent); }
+.note { color: var(--muted); text-align: right; max-width: 16em; }
+.note.lbl { line-height: 2; }
+@media (max-width: 640px) { .note { text-align: left; } }
+
+.climb-head { padding-block: 96px 0; }
+.scrolly { position: relative; height: calc(11 * 80vh); }
+.stick { position: sticky; top: 58px; height: calc(100vh - 58px); height: calc(100svh - 58px); display: grid; grid-template-columns: 340px minmax(0, 1fr) 54px; overflow: hidden; }
+.card { padding: 28px 28px 28px 0; display: flex; flex-direction: column; gap: 14px; min-width: 0; border-right: 1px solid var(--rule); transition: opacity .2s; }
+.card.fade { opacity: 0; }
+.card h3 { margin: 0; font-weight: 500; font-size: 2.2rem; line-height: 1.02; letter-spacing: -.03em; }
+.card .meta { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: .04em; }
+.card p { margin: 0; }
+.kv { display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; margin: 0; padding: 12px 0; border-block: 1px solid var(--rule); font-size: .95rem; }
+.kv dt { color: var(--muted); }
+.kv dd { margin: 0; text-align: right; font-variant-numeric: tabular-nums; }
+.card .facts { display: grid; gap: 8px; font-size: .98rem; }
+.card .facts p { padding-left: 18px; position: relative; }
+.card .facts p::before { content: "—"; position: absolute; left: 0; color: var(--faint); }
+.card .status { margin-top: auto; font-family: var(--mono); font-size: 12px; letter-spacing: .06em; padding-top: 12px; border-top: 1px solid var(--ink); }
+.card .status b { color: var(--accent); font-weight: 700; }
+.card .big { font-size: clamp(3rem, 6vw, 4.6rem); font-weight: 500; letter-spacing: -.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+.card .btn { align-self: flex-start; }
+.stage-svg { position: relative; min-width: 0; }
+.stage-svg svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.idx { display: flex; flex-direction: column; justify-content: center; align-items: flex-end; gap: 4px; }
+.idx button { font-family: var(--mono); font-size: 11px; color: var(--faint); padding: 3px 0 3px 10px; display: flex; align-items: center; gap: 6px; }
+.idx button::after { content: ""; width: 10px; height: 1px; background: currentColor; transition: width .2s; }
+.idx button.done { color: var(--ink); }
+.idx button.on { color: var(--accent); }
+.idx button.on::after { width: 22px; }
+.scroll-cue { position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); pointer-events: none; transition: opacity .3s; }
+@media (max-width: 860px) {
+  .stick { grid-template-columns: minmax(0, 1fr) 40px; grid-template-rows: minmax(0, 1fr) auto; }
+  .stage-svg { grid-column: 1; grid-row: 1; }
+  .idx { grid-column: 2; grid-row: 1; }
+  .card { grid-column: 1 / -1; grid-row: 2; border-right: 0; border-top: 1px solid var(--rule); padding: 14px 0 16px; gap: 8px; }
+  .card h3 { font-size: 1.6rem; }
+  .card .kv, .card .facts p + p { display: none; }
+  .card .big { font-size: 2.6rem; }
+}
+
+.team { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.member { padding: 32px 28px 8px; border-left: 1px solid var(--rule); display: grid; gap: 22px; align-content: start; min-width: 0; }
+.member:first-child { border-left: 0; padding-left: 0; }
+.member .nm { font-size: 1.5rem; line-height: 1.15; letter-spacing: -.01em; }
+.member .amt { font-size: clamp(2.4rem, 4.6vw, 3.4rem); font-weight: 500; letter-spacing: -.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+.member .line { height: 2px; background: var(--rule); position: relative; }
+.member .line i { position: absolute; inset: 0 auto 0 0; background: var(--ink); width: 0; transition: width 1.2s ease; }
+.member .lbl { line-height: 1.9; }
+.member .btn { justify-self: start; margin-top: 6px; }
+@media (max-width: 860px) { .team { grid-template-columns: 1fr; } .member { border-left: 0; border-top: 1px solid var(--rule); padding: 28px 0 8px; } .member:first-child { border-top: 0; } }
+
+.cause { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 40px 56px; padding-top: 40px; align-items: start; }
+@media (max-width: 900px) { .cause { grid-template-columns: 1fr; } }
+.cause figure { margin: 0; }
+.cause img { width: 100%; height: auto; display: block; aspect-ratio: 506 / 315; object-fit: cover; }
+.cause figcaption { margin-top: 10px; }
+.cause .txt { display: grid; gap: 18px; font-size: 1.08rem; }
+.cause .txt p { margin: 0; }
+.stats3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--ink); margin-top: 8px; }
+.stats3 div { padding: 14px 12px 0 0; display: grid; gap: 6px; align-content: start; }
+.stats3 .v { font-size: 1.9rem; font-weight: 500; letter-spacing: -.03em; line-height: 1; }
+.stats3 .lbl { letter-spacing: .14em; line-height: 1.7; }
+.cause .more { text-decoration: none; font-family: var(--mono); font-size: 12px; letter-spacing: .18em; text-transform: uppercase; }
+.cause .more:hover { color: var(--accent); }
+
+.wall { list-style: none; margin: 0; padding: 0; }
+.wall li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px 32px; padding: 30px 0; border-bottom: 1px solid var(--rule); }
+.wall q { font-size: clamp(1.3rem, 2.4vw, 1.75rem); line-height: 1.4; letter-spacing: -.01em; quotes: "“" "”"; overflow-wrap: anywhere; }
+.wall .who { grid-column: 1; }
+.wall .amt { font-family: var(--mono); font-size: 13px; color: var(--accent); grid-row: 1; grid-column: 2; padding-top: 6px; }
+.wall .wall-empty { color: var(--muted); display: block; }
+
+footer { margin-top: 96px; border-top: 1px solid var(--ink); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 24px; padding-block: 18px 40px; }
+
+
+@keyframes pulse { 0% { transform: scale(1); opacity: .6 } 100% { transform: scale(2.8); opacity: 0 } }
+.pulse { animation: pulse 1.8s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+@media (prefers-reduced-motion: reduce) { .pulse { animation: none; opacity: .25; } .card, .track i, .member .line i { transition: none; } }
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="wrap">
+    <span class="logo">(shf/kili)</span>
+    <nav class="lbl"><a href="#climb">The climb</a><a href="#team">Team</a><a href="#cause">Cause</a><a href="#wall">Wall</a></nav>
+    <a class="btn sm" href="#team">Donate ↓</a>
+  </div>
+</div>
+
+<main>
+  <section class="hero-bg">
+  <div class="wrap hero">
+    <div>
+      <span class="lbl">August 2027 · University of Sheffield · for Dig Deep</span>
+      <h1>Three friends, one mountain, and a lot of reasons to keep walking uphill.</h1>
+    </div>
+    <div class="story">
+      <p>In August 2027, Aaron, Kobie and Lui, three final-year students at the University of Sheffield, leave their dissertations, their warm beds and their excuses at the trailhead of the Machame Route and walk uphill for seven days.</p>
+      <p>Kilimanjaro is 5,895 metres of scree, ice and thin air. The final push starts at midnight, in the dark, at minus ten, with the summit somewhere above the clouds and nobody guaranteeing we get there.</p>
+      <p>We're doing it because 703 million people still live without clean water close to home. In Bomet County, Kenya, two in three people go without, and every pound we raise helps Dig Deep change that.</p>
+    </div>
+    <div class="tally" aria-label="Fundraising so far">
+      <div><span class="lbl">Raised</span><span class="v" id="tRaised">£768</span></div>
+      <div><span class="lbl">Team target</span><span class="v" id="tTarget">£8,970</span></div>
+      <div><span class="lbl">Of the way</span><span class="v" id="tPct">9%</span></div>
+      <div><span class="lbl" id="tNextL">Next camp</span><span class="v acc" id="tNext">£354</span></div>
+      <div class="track" role="progressbar" aria-label="Progress to the team target" aria-valuemin="0" aria-valuemax="100" id="track"><i id="trackFill"></i></div>
+    </div>
+  </div>
+  </section>
+
+  <section id="climb">
+    <div class="wrap climb-head">
+      <div class="head">
+        <div><span class="lbl">01 — The climb</span><h2>Scroll up the mountain.</h2></div>
+        <span class="note lbl">Every pound moves us<br>closer to the summit</span>
+      </div>
+    </div>
+    <div class="scrolly" id="scrolly">
+      <div class="stick wrap" id="stick">
+        <div class="card" id="card"></div>
+        <div class="stage-svg" id="stage">
+          <svg id="mtn" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Line drawing of Mount Kilimanjaro with the Machame Route and the team's current position">
+            <defs>
+              <clipPath id="mclip"><path id="mshape" d="M70 880 C190 850 270 740 320 650 C350 590 372 540 420 522 C470 508 512 474 556 418 C612 340 662 272 698 240 L756 228 L816 222 L880 224 L944 230 L986 244 C1032 296 1080 352 1124 384 L1160 360 L1184 326 L1204 296 L1220 318 L1236 288 L1252 312 L1268 336 L1300 384 C1370 480 1450 650 1540 880 Z"/></clipPath>
+              <pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#0b0b0b" stroke-width="1" opacity=".22"/></pattern>
+            </defs>
+            <g id="scale"></g>
+            <g id="clouds"></g>
+            <use href="#mshape" fill="#ffffff"/>
+            <g clip-path="url(#mclip)" id="relief"></g>
+            <path id="outline" fill="none" stroke="#0b0b0b" stroke-width="1.6" vector-effect="non-scaling-stroke" stroke-linejoin="round"/>
+            <g id="route"></g>
+            <g id="camps"></g>
+            <g id="marker"></g>
+          </svg>
+          <span class="lbl scroll-cue" id="cue">Scroll ↓</span>
+        </div>
+        <nav class="idx" id="idx" aria-label="Jump to a camp"></nav>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap sec" id="team">
+    <div class="head">
+      <div><span class="lbl">02 — The team</span><h2>Three climbers,<br>three pages.</h2></div>
+      <span class="note">Each of us carries a third of the mountain.</span>
+    </div>
+    <div class="team" id="members"></div>
+  </section>
+
+  <section class="wrap sec" id="cause">
+    <div class="head" style="border-bottom:0;padding-bottom:0">
+      <div><span class="lbl">03 — The cause</span><h2>Water in <em>Bomet County</em>, Kenya.</h2></div>
+    </div>
+    <div class="cause">
+      <figure>
+        <img src="assets/bomet-water.jpg" alt="Water pouring from a tap into a yellow jerrycan against a red stone wall">
+        <figcaption class="lbl">Clean water, close to home</figcaption>
+      </figure>
+      <div class="txt">
+        <p>Dig Deep works alongside communities in Bomet County, Kenya, protecting springs and building the water, toilets and hygiene services families need, together with local businesses and the Kenyan government.</p>
+        <p>Here, two in three people lack clean water, safe sanitation and good hygiene. Waterborne disease is one of the leading killers of children under five. Long walks for water keep children out of school and parents out of work, and the burden falls hardest on women and girls.</p>
+        <div class="stats3">
+          <div><span class="v">1M</span><span class="lbl">people in Bomet County</span></div>
+          <div><span class="v">2 in 3</span><span class="lbl">without clean water and sanitation</span></div>
+          <div><span class="v">50%</span><span class="lbl">of every target goes to Dig Deep</span></div>
+        </div>
+        <a class="more" href="https://www.digdeep.org.uk" target="_blank" rel="noopener">digdeep.org.uk ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap sec" id="wall">
+    <div class="head">
+      <div><span class="lbl">04 — The wall</span><h2>Recent<br>supporters.</h2></div>
+      <span class="note lbl">Latest supporter<br>messages</span>
+    </div>
+    <ul class="wall" id="wallList"></ul>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap"><span class="lbl ink">Aaron · Kobie · Lui — University of Sheffield — Kilimanjaro, August 2027</span><span class="lbl" id="upd">Totals from Enthuse</span></div>
+</footer>
+
+<script>
+(() => {
+  const PEOPLE = [
+    { slug: "aaron-mojica", name: "Aaron Mojica", short: "Aaron" },
+    { slug: "kobie-corsino", name: "Kobie Corsino", short: "Kobie" },
+    { slug: "lui-papena", name: "Lui Papena", short: "Lui" },
+  ];
+  // Filled in automatically from data.json by scripts/build.mjs
+  const FALLBACK = /*__DATA__*/null;
+  const TOP = 5895, BASE = 1500, GY = 880, SY = 222;
+  const yA = a => GY - (a - BASE) / (TOP - BASE) * (GY - SY);
+  const CAMPS = [
+    { n: "Machame Gate", alt: 1800, x: 300, day: "Day 1 · start", zone: "Rainforest", hike: "Trailhead", temp: "12–20°C",
+      facts: ["The climb starts in thick montane rainforest, home to black-and-white colobus and blue monkeys.", "Paths are often muddy and the air is warm and humid."] },
+    { n: "Machame Camp", alt: 2835, x: 392, day: "Day 1 · night", zone: "Heath & moorland", hike: "11 km · 5–7 h", temp: "0–15°C",
+      facts: ["The forest gives way to giant heather at the edge of the moorland.", "First night in tents, and it can get close to freezing."] },
+    { n: "Shira Camp", alt: 3750, x: 488, day: "Day 2", zone: "Heath & moorland", hike: "5 km · 4–6 h", temp: "-5–15°C",
+      facts: ["Shira is one of Kilimanjaro's three volcanic cones. The plateau is its collapsed crater.", "On clear evenings you can see Mount Meru rising above the clouds."] },
+    { n: "Lava Tower", alt: 4630, x: 612, day: "Day 3 · lunch", zone: "Alpine desert", hike: "7 km · 4–5 h", temp: "-5–10°C",
+      facts: ["A 90 m tower of old volcanic rock.", "Climbers go high here, then sleep lower to help their bodies adjust to the altitude."] },
+    { n: "Barranco Camp", alt: 3976, x: 712, day: "Day 3 · night", zone: "Heath & moorland", hike: "3 km · 2–3 h", temp: "0–15°C",
+      facts: ["A sheltered valley full of giant groundsels, plants found only on East African mountains.", "Next morning starts with the Barranco Wall, a 257 m hands-on scramble."] },
+    { n: "Karanga Camp", alt: 3995, x: 852, day: "Day 4 · night", zone: "Alpine desert", hike: "5 km · 4–5 h", temp: "0–15°C",
+      facts: ["The last place on the route to collect water.", "Porters carry water up from here for the final push."] },
+    { n: "Barafu Camp", alt: 4673, x: 960, day: "Day 5 · night", zone: "Alpine desert", hike: "4 km · 4–5 h", temp: "-10–10°C",
+      facts: ["'Barafu' means ice in Swahili. The camp sits on a rocky, windy ridge.", "Climbers sleep a few hours and set off for the summit around midnight."] },
+    { n: "Stella Point", alt: 5756, x: 912, day: "Day 6 · sunrise", zone: "Arctic summit", hike: "4.5 km · 5–7 h", temp: "-7 to -20°C",
+      facts: ["The edge of the crater rim, usually reached around sunrise after hours of steep scree.", "There's about half the oxygen of sea level up here."] },
+    { n: "Uhuru Peak", alt: 5895, x: 830, day: "Day 6 · summit", zone: "Arctic summit", hike: "1 km · about 1 h", temp: "-7 to -20°C",
+      facts: ["The highest point in Africa. 'Uhuru' means freedom in Swahili, named after Tanganyika's independence in 1961.", "First recorded climb: 1889, by Hans Meyer and Ludwig Purtscheller with local guide Yohani Lauwo."] },
+  ];
+  CAMPS.forEach(c => { c.y = yA(c.alt) - 2; });
+  const LEGS = CAMPS.length - 1;
+  const $ = id => document.getElementById(id);
+  const fmt = n => "£" + Math.round(n).toLocaleString("en-GB");
+  const pad = n => String(n).padStart(2, "0");
+  const NS = "http://www.w3.org/2000/svg";
+  const el = (tag, attrs, parent) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; };
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  let state = FALLBACK, model = null;
+
+  // ---------- line drawing (built once) ----------
+  (function drawStatic() {
+    $("outline").setAttribute("d", $("mshape").getAttribute("d"));
+    const sc = $("scale");
+    for (let a = 2000; a <= 5500; a += 500) {
+      const y = yA(a);
+      el("line", { x1: 18, x2: 46, y1: y, y2: y, stroke: "#0b0b0b", "stroke-width": 1, "vector-effect": "non-scaling-stroke", opacity: .5 }, sc);
+      const t = el("text", { x: 52, y: y + 4, "font-family": "Space Mono, monospace", "font-size": 13, fill: "#6f6f6f", class: "scl" }, sc); t.textContent = a.toLocaleString("en-GB") + " m";
+    }
+    const rel = $("relief");
+    for (let a = 1750; a <= 5750; a += 250) {
+      const y = yA(a); let d = "";
+      for (let x = 0; x <= 1600; x += 20) d += (x ? "L" : "M") + x + " " + (y + Math.sin(x / 47 + a) * 4 + Math.sin(x / 13 + a / 3) * 1.6).toFixed(1);
+      el("path", { d, fill: "none", stroke: "#0b0b0b", "stroke-width": a % 1000 === 0 ? 1.1 : .7, opacity: a % 1000 === 0 ? .3 : .14, "vector-effect": "non-scaling-stroke" }, rel);
+    }
+    for (let k = 0; k < 26; k++) {
+      const ang = Math.PI * (0.06 + 0.88 * k / 25), len = 700, sx = 830 + Math.cos(Math.PI - ang) * 90, sy = 238;
+      const ex = 830 + Math.cos(Math.PI - ang) * len * 1.05, ey = sy + Math.sin(ang) * len;
+      el("path", { d: `M${sx.toFixed(1)} ${sy} Q${((sx + ex) / 2 + (k % 3 - 1) * 30).toFixed(1)} ${((sy + ey) / 2).toFixed(1)} ${ex.toFixed(1)} ${ey.toFixed(1)}`, fill: "none", stroke: "#0b0b0b", "stroke-width": .6, opacity: .1, "vector-effect": "non-scaling-stroke" }, rel);
+    }
+    el("path", { d: "M640 300 L700 238 L760 226 L820 220 L880 222 L944 228 L990 246 L1030 292 L1000 300 L985 284 L960 304 L930 286 L905 310 L880 288 L850 306 L820 286 L790 304 L760 284 L735 302 L705 290 L680 306 Z", fill: "url(#hatch)" }, rel);
+    el("path", { d: "M760 236 C800 250 880 250 930 236", fill: "none", stroke: "#0b0b0b", "stroke-width": 1, opacity: .5, "vector-effect": "non-scaling-stroke" }, rel);
+    const cl = $("clouds");
+    [[150, 800, 1.2], [1380, 760, 1], [520, 900, .9], [1120, 880, 1.1], [1500, 420, .8], [200, 470, .7]].forEach(([x, y, s]) => {
+      el("path", { d: "M0 0 q8-26 38-18 q14-24 44-8 q32-6 32 22 q0 14-16 14 h-90 q-18 0-8-10z", transform: `translate(${x} ${y}) scale(${s * 1.6})`, fill: "#ffffff", stroke: "#0b0b0b", "stroke-width": 1, "vector-effect": "non-scaling-stroke" }, cl);
+    });
+    const r = $("route");
+    el("polyline", { points: CAMPS.map(c => c.x + "," + c.y.toFixed(1)).join(" "), fill: "none", stroke: "#0b0b0b", "stroke-width": 1.3, "stroke-dasharray": "2 6", "stroke-linecap": "round", "vector-effect": "non-scaling-stroke", opacity: .55 }, r);
+    el("polyline", { id: "done", fill: "none", stroke: "#0b0b0b", "stroke-width": 2.6, "stroke-linecap": "round", "stroke-linejoin": "round", "vector-effect": "non-scaling-stroke" }, r);
+    const cg = $("camps");
+    CAMPS.forEach((c, i) => {
+      const g = el("g", { class: "cmp", transform: `translate(${c.x} ${c.y.toFixed(1)})` }, cg);
+      el("circle", { class: "ring", r: 10, fill: "none", stroke: "#0b0b0b", "stroke-width": 1, "vector-effect": "non-scaling-stroke", opacity: 0 }, g);
+      el("circle", { class: "dot", r: 5, fill: "#ffffff", stroke: "#0b0b0b", "stroke-width": 1.4, "vector-effect": "non-scaling-stroke" }, g);
+      const t = el("text", { class: "cl", x: 10, y: 4, "font-family": "Space Mono, monospace", "font-size": 12, fill: "#0b0b0b", stroke: "#ffffff", "stroke-width": 3, "paint-order": "stroke", "stroke-linejoin": "round" }, g);
+      t.textContent = pad(i + 1) + " " + c.n; t.dataset.full = t.textContent; t.dataset.num = pad(i + 1);
+    });
+  })();
+
+  const along = frac => {
+    const f = Math.max(0, Math.min(1, frac)) * LEGS, i = Math.min(LEGS - 1, Math.floor(f)), t = f - i, a = CAMPS[i], b = CAMPS[i + 1];
+    return [a.x + (b.x - a.x) * t, a.y + (b.y - a.y) * t];
+  };
+  function compute() {
+    const ppl = PEOPLE.map(p => ({ ...p, raised: 0, target: 2990, donors: 0, ...(state.people?.[p.slug] || {}) }));
+    const total = ppl.reduce((s, p) => s + (+p.raised || 0), 0);
+    const target = ppl.reduce((s, p) => s + (+p.target || 0), 0) || 1;
+    const frac = Math.min(1, total / target);
+    return { ppl, total, target, frac, legSize: target / LEGS, reached: Math.min(LEGS, Math.floor(frac * LEGS + 1e-9)) };
+  }
+
+  // ---------- scroll-driven zoom: step 0 overview, 1–9 camps, 10 summit view ----------
+  const STEPS = CAMPS.length + 2;
+  const svg = $("mtn"), stage = $("stage");
+  let pxW = 1, pxH = 1, curStep = -1, lastPos = -1, vbX = 0;
+  function measure() { const r = stage.getBoundingClientRect(); pxW = r.width || 1; pxH = r.height || 1; lastPos = -1; tick(); }
+  new ResizeObserver(measure).observe(stage);
+  function viewFor(step) {
+    const asp = pxW / pxH;
+    if (step === 0 || step === STEPS - 1) return { cx: 805, cy: 560, w: Math.max(1560, 740 * asp) };
+    const c = CAMPS[step - 1];
+    return { cx: c.x, cy: c.y - 10, w: Math.max(280, Math.min(640, 300 * asp)) };
+  }
+  const ease = t => t * t * (3 - 2 * t);
+  function progress() {
+    const r = $("scrolly").getBoundingClientRect(), span = r.height - (innerHeight - 58);
+    return Math.max(0, Math.min(1, -r.top / span));
+  }
+  function applyView(pos) {
+    const i = Math.min(STEPS - 2, Math.floor(pos)), f = pos - i;
+    const e = ease(Math.max(0, Math.min(1, (f - 0.3) / 0.4)));
+    const a = viewFor(i), b = viewFor(i + 1);
+    const w = Math.exp(Math.log(a.w) + (Math.log(b.w) - Math.log(a.w)) * e);
+    const cx = a.cx + (b.cx - a.cx) * e, cy = a.cy + (b.cy - a.cy) * e, h = w * pxH / pxW;
+    svg.setAttribute("viewBox", `${(cx - w / 2).toFixed(1)} ${(cy - h / 2).toFixed(1)} ${w.toFixed(1)} ${h.toFixed(1)}`);
+    const u = w / pxW; // world units per screen pixel
+    const wide = u > 1.3;
+    svg.querySelectorAll(".cl").forEach(t => { t.setAttribute("font-size", (12 * u).toFixed(2)); t.setAttribute("x", (11 * u).toFixed(2)); t.setAttribute("y", (4 * u).toFixed(2)); const want = wide ? t.dataset.num : t.dataset.full; if (t.textContent !== want) t.textContent = want; });
+    vbX = cx - w / 2;
+    svg.querySelectorAll(".scl").forEach(t => t.setAttribute("font-size", (12 * u).toFixed(2)));
+    svg.querySelectorAll(".dot").forEach(d => d.setAttribute("r", (4.5 * u).toFixed(2)));
+    svg.querySelectorAll(".ring").forEach(d => d.setAttribute("r", (11 * u).toFixed(2)));
+    scaleMarker(u);
+  }
+  function tick() {
+    if (!model) return;
+    const pos = progress() * (STEPS - 1);
+    if (Math.abs(pos - lastPos) < 0.0005) return;
+    lastPos = pos; applyView(pos);
+    const step = Math.round(pos);
+    if (step !== curStep) setStep(step);
+    $("cue").style.opacity = pos < 0.15 ? 1 : 0;
+  }
+  let ticking = false;
+  addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { ticking = false; tick(); }); } }, { passive: true });
+  function scrollToStep(step) {
+    const sc = $("scrolly"), span = sc.offsetHeight - (innerHeight - 58);
+    scrollTo({ top: sc.getBoundingClientRect().top + scrollY + span * (step / (STEPS - 1)) + 2, behavior: reduce ? "auto" : "smooth" });
+  }
+  (function buildIdx() {
+    const nav = $("idx");
+    for (let s = 1; s <= CAMPS.length; s++) {
+      const b = document.createElement("button"); b.type = "button"; b.textContent = pad(s); b.dataset.s = s;
+      b.setAttribute("aria-label", "Go to " + CAMPS[s - 1].n); b.addEventListener("click", () => scrollToStep(s)); nav.appendChild(b);
+    }
+  })();
+
+  // ---------- one marker for the whole team ----------
+  let markerG = null;
+  function drawMarker() {
+    const m = $("marker"); m.textContent = "";
+    const [x, y] = along(model.frac);
+    markerG = el("g", { transform: `translate(${x.toFixed(1)} ${y.toFixed(1)})` }, m);
+    el("circle", { class: "pulse mk-c", r: 8, fill: "#d9782f" }, markerG);
+    el("circle", { class: "mk-c", r: 8, fill: "#d9782f", stroke: "#ffffff", "stroke-width": 2, "vector-effect": "non-scaling-stroke" }, markerG);
+    el("rect", { class: "mk-r", fill: "#0b0b0b" }, markerG);
+    const t = el("text", { class: "mk-x", "font-family": "Space Mono, monospace", fill: "#ffffff" }, markerG); t.textContent = "We're here · " + fmt(model.total);
+  }
+  function scaleMarker(u) {
+    if (!markerG) return;
+    markerG.querySelectorAll(".mk-c").forEach(c => c.setAttribute("r", (7 * u).toFixed(2)));
+    const t = markerG.querySelector(".mk-x"), r = markerG.querySelector(".mk-r");
+    const fs = 12 * u, w = t.textContent.length * fs * 0.62 + 18 * u, h = 24 * u, y0 = -h - 10 * u;
+    const mx = along(model.frac)[0], x0 = (mx - w - 14 * u < vbX + 8 * u) ? 14 * u : -w - 14 * u;
+    r.setAttribute("x", x0.toFixed(2)); r.setAttribute("y", y0.toFixed(2)); r.setAttribute("width", w.toFixed(2)); r.setAttribute("height", h.toFixed(2));
+    t.setAttribute("font-size", fs.toFixed(2)); t.setAttribute("x", (x0 + 9 * u).toFixed(2)); t.setAttribute("y", (y0 + h / 2 + fs * 0.36).toFixed(2));
+  }
+
+  // ---------- stage card ----------
+  function setStep(step) {
+    curStep = step;
+    const card = $("card"), m = model;
+    const camp = step >= 1 && step <= CAMPS.length ? step - 1 : null;
+    document.querySelectorAll("#idx button").forEach(b => { const s = +b.dataset.s; b.classList.toggle("on", s === step); b.classList.toggle("done", s - 1 <= m.reached); });
+    svg.querySelectorAll(".cmp").forEach((g, i) => {
+      g.querySelector(".ring").setAttribute("opacity", i === camp ? 1 : 0);
+      g.querySelector(".cl").setAttribute("font-weight", i === camp ? 700 : 400);
+      g.querySelector(".cl").setAttribute("opacity", camp == null || i === camp ? 1 : .4);
+    });
+    let html;
+    if (step === 0) {
+      const nxt = CAMPS[Math.min(LEGS, m.reached + 1)], need = Math.ceil(m.legSize * (m.reached + 1) - m.total);
+      html = `<span class="lbl">Where we are</span><div class="big">${fmt(m.total)}</div>
+        <p>raised of ${fmt(m.target)}. That's ${Math.round(m.frac * 100)}% of the way, which puts the team ${m.reached === 0 ? "just above Machame Gate" : "past " + CAMPS[m.reached].n}. Keep scrolling to climb.</p>
+        <div class="status">${m.reached >= LEGS ? "Summit reached!" : `<b>${fmt(need)}</b> until ${nxt.n}`}</div>`;
+    } else if (camp == null) {
+      html = `<span class="lbl">The summit</span><div class="big">${fmt(m.target)}</div>
+        <p>gets all three of us to Uhuru Peak, 5,895 m, the roof of Africa.</p>
+        <a class="btn" href="#team">Help us get there ↗</a>
+        <div class="status">${m.frac >= 1 ? "We made it." : `<b>${fmt(m.target - m.total)}</b> still to raise`}</div>`;
+    } else {
+      const at = m.legSize * camp;
+      const status = camp <= m.reached ? (camp === 0 ? "Start line · we're on our way" : `Reached · unlocked at ${fmt(at)}`) : `Unlocks at ${fmt(Math.ceil(at))} · <b>${fmt(Math.ceil(at - m.total))}</b> to go`;
+      html = `<span class="lbl">Stage ${pad(camp + 1)} / ${pad(CAMPS.length)}</span><h3></h3><div class="meta"></div>
+        <dl class="kv"><dt>Zone</dt><dd class="z"></dd><dt>Getting here</dt><dd class="hk"></dd><dt>Temperature</dt><dd class="tp"></dd></dl>
+        <div class="facts"></div><div class="status">${status}</div>`;
+    }
+    const swap = () => {
+      card.innerHTML = html;
+      if (camp != null) {
+        const c = CAMPS[camp];
+        card.querySelector("h3").textContent = c.n;
+        card.querySelector(".meta").textContent = c.alt.toLocaleString("en-GB") + " m · " + c.day;
+        card.querySelector(".z").textContent = c.zone; card.querySelector(".hk").textContent = c.hike; card.querySelector(".tp").textContent = c.temp;
+        const f = card.querySelector(".facts"); c.facts.forEach(x => { const p = document.createElement("p"); p.textContent = x; f.appendChild(p); });
+      }
+      card.classList.remove("fade");
+    };
+    clearTimeout(setStep.t);
+    if (reduce || !card.innerHTML) swap(); else { card.classList.add("fade"); setStep.t = setTimeout(swap, 160); }
+  }
+
+  // ---------- page render ----------
+  function ago(iso) {
+    const d = (Date.now() - new Date(iso)) / 36e5;
+    if (d < 1) return "just now"; if (d < 24) return Math.round(d) + "h ago";
+    const days = Math.round(d / 24); return days === 1 ? "yesterday" : days + " days ago";
+  }
+  function render() {
+    model = compute();
+    const { ppl, total, target, frac, legSize, reached } = model;
+    $("tRaised").textContent = fmt(total); $("tTarget").textContent = fmt(target); $("tPct").textContent = Math.round(frac * 100) + "%";
+    if (reached >= LEGS) { $("tNextL").textContent = "Summit"; $("tNext").textContent = "Done"; }
+    else { $("tNextL").textContent = "To " + CAMPS[reached + 1].n; $("tNext").textContent = fmt(Math.ceil(legSize * (reached + 1) - total)); }
+    $("trackFill").style.width = (frac * 100).toFixed(2) + "%"; $("track").setAttribute("aria-valuenow", Math.round(frac * 100));
+    $("upd").textContent = state.updatedAt ? "Totals updated " + ago(state.updatedAt) : "";
+
+    const pts = []; for (let i = 0; i <= reached; i++) pts.push([CAMPS[i].x, CAMPS[i].y]);
+    if (reached < LEGS) pts.push(along(frac));
+    $("done").setAttribute("points", pts.map(p => p.map(v => v.toFixed(1)).join(",")).join(" "));
+    svg.querySelectorAll(".dot").forEach((d, i) => d.setAttribute("fill", i <= reached ? "#0b0b0b" : "#ffffff"));
+    drawMarker();
+
+    const mem = $("members"); mem.textContent = "";
+    ppl.forEach(p => {
+      const f = Math.min(1, p.raised / (p.target || 1)), alt = Math.round(1800 + f * (TOP - 1800));
+      const d = document.createElement("article"); d.className = "member";
+      d.innerHTML = `<div class="nm"></div><div class="amt"></div><span class="lbl alt"></span><div class="line"><i style="width:${(f * 100).toFixed(1)}%"></i></div><span class="lbl tg"></span>
+        <a class="btn" href="https://dig-deep.enthuse.com/pf/${p.slug}" target="_blank" rel="noopener">Donate <span aria-hidden="true">↗</span></a>`;
+      const [fn, ln] = p.name.split(" "); const nm = d.querySelector(".nm"); nm.append(fn, document.createElement("br"), ln);
+      d.querySelector(".amt").textContent = fmt(p.raised);
+      d.querySelector(".alt").textContent = `${alt.toLocaleString("en-GB")} m of 5,895 m`;
+      d.querySelector(".tg").textContent = `of ${fmt(p.target)} target · ${p.donors} donor${p.donors == 1 ? "" : "s"}`;
+      d.querySelector(".btn").setAttribute("aria-label", "Donate to " + p.name);
+      mem.appendChild(d);
+    });
+
+    const wl = $("wallList"); wl.textContent = "";
+    const items = (state.wall || []).slice().sort((a, b) => new Date(b.at) - new Date(a.at)).slice(0, 8);
+    if (!items.length) { const li = document.createElement("li"); li.innerHTML = `<span class="wall-empty">Messages from supporters will appear here.</span>`; wl.appendChild(li); }
+    items.forEach(w => {
+      const li = document.createElement("li");
+      li.innerHTML = `<q></q><span class="lbl who"></span>${w.amount ? `<span class="amt"></span>` : ""}`;
+      li.querySelector("q").textContent = w.msg;
+      li.querySelector(".who").textContent = `${w.name} · ${w.to} · ${ago(w.at)}`;
+      if (w.amount) li.querySelector(".amt").textContent = fmt(w.amount);
+      wl.appendChild(li);
+    });
+
+    curStep = -1; lastPos = -1; tick();
+  }
+
+  render();
+
+})();
+</script>
+
+</body>
+</html>
