@@ -1,23 +1,24 @@
-name: Update totals and publish site
+name: Publish site
 
+# Enthuse blocks GitHub's servers (Cloudflare bot protection), so totals are read
+# from a browser on Kobie's computer by an hourly Claude task, which commits
+# data.json. Every push to main rebuilds and republishes the site.
 on:
-  schedule:
-    - cron: "17 * * * *"   # every hour, at 17 minutes past
   push:
     branches: [main]
-  workflow_dispatch:       # lets you run it by hand from the Actions tab
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
 concurrency:
   group: site
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
-  update-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -27,40 +28,13 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-
-      - name: Read the Enthuse pages
-        id: update
-        continue-on-error: true
-        run: |
-          set -o pipefail
-          if node scripts/update.mjs 2>&1 | tee update.log; then
-            echo "checked_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_OUTPUT"
-            echo "### ✅ Enthuse read OK" >> "$GITHUB_STEP_SUMMARY"
-          else
-            echo "### ⚠️ Couldn't read Enthuse, site published with the last saved figures" >> "$GITHUB_STEP_SUMMARY"
-            status=1
-          fi
-          echo '```' >> "$GITHUB_STEP_SUMMARY"; cat update.log >> "$GITHUB_STEP_SUMMARY"; echo '```' >> "$GITHUB_STEP_SUMMARY"
-          exit ${status:-0}
-
-      - name: Save new totals to the repo
-        if: steps.update.outcome == 'success'
-        run: |
-          if ! git diff --quiet -- data.json; then
-            git config user.name "kili-bot"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add data.json
-            git commit -m "Update fundraising totals"
-            git push
-          fi
+          node-version: 22
 
       - name: Build the site
-        env:
-          CHECKED_AT: ${{ steps.update.outputs.checked_at }}
         run: |
           node scripts/build.mjs
-          { echo "Last check: $(date -u +%Y-%m-%dT%H:%M:%SZ)"; echo "Enthuse read: ${{ steps.update.outcome }}"; cat update.log 2>/dev/null; } > _site/status.txt
+          node -e 'const d=require("./data.json");const t=Object.values(d.people).reduce((s,p)=>s+p.raised,0);console.log(`Last checked: ${d.checkedAt||d.updatedAt}\nLast change: ${d.updatedAt}\nTotal raised: £${t}\nSupporter messages: ${d.wall.length}`)' > _site/status.txt
+          cat _site/status.txt
 
       - uses: actions/configure-pages@v5
 
