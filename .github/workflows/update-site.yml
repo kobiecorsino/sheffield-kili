@@ -58,7 +58,9 @@ jobs:
       - name: Build the site
         env:
           CHECKED_AT: ${{ steps.update.outputs.checked_at }}
-        run: node scripts/build.mjs
+        run: |
+          node scripts/build.mjs
+          { echo "Last check: $(date -u +%Y-%m-%dT%H:%M:%SZ)"; echo "Enthuse read: ${{ steps.update.outcome }}"; cat update.log 2>/dev/null; } > _site/status.txt
 
       - uses: actions/configure-pages@v5
 
