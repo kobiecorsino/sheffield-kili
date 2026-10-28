@@ -33,8 +33,16 @@ jobs:
         id: update
         continue-on-error: true
         run: |
-          node scripts/update.mjs
-          echo "checked_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_OUTPUT"
+          set -o pipefail
+          if node scripts/update.mjs 2>&1 | tee update.log; then
+            echo "checked_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_OUTPUT"
+            echo "### ✅ Enthuse read OK" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "### ⚠️ Couldn't read Enthuse, site published with the last saved figures" >> "$GITHUB_STEP_SUMMARY"
+            status=1
+          fi
+          echo '```' >> "$GITHUB_STEP_SUMMARY"; cat update.log >> "$GITHUB_STEP_SUMMARY"; echo '```' >> "$GITHUB_STEP_SUMMARY"
+          exit ${status:-0}
 
       - name: Save new totals to the repo
         if: steps.update.outcome == 'success'

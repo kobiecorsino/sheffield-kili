@@ -24,8 +24,12 @@ async function get(url) {
   for (let attempt = 1; attempt <= 3; attempt++) {
     try {
       const res = await fetch(url, { headers: HEADERS });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      return await res.text();
+      const body = await res.text();
+      if (!res.ok) {
+        const blocked = /just a moment|cf-chl|challenge-platform|attention required/i.test(body);
+        throw new Error(`HTTP ${res.status}${blocked ? " (blocked by Cloudflare bot protection)" : ""}`);
+      }
+      return body;
     } catch (err) {
       if (attempt === 3) throw new Error(`${url}: ${err.message}`);
       await new Promise(r => setTimeout(r, 2000 * attempt));
@@ -86,8 +90,9 @@ async function main() {
     wall = wall.concat(parseDonations(dHtml, p.short));
   }
   // keep older messages that have scrolled off Enthuse's "recent" list
-  const seen = new Set(wall.map(w => w.id));
-  for (const w of old.wall || []) if (w.id && !seen.has(w.id)) wall.push(w);
+  const key = w => w.id || `${w.to}|${w.name}|${w.msg}`;
+  const seen = new Set(wall.flatMap(w => [w.id, `${w.to}|${w.name}|${w.msg}`]));
+  for (const w of old.wall || []) if (!seen.has(key(w)) && !seen.has(`${w.to}|${w.name}|${w.msg}`)) wall.push(w);
   wall.sort((a, b) => new Date(b.at) - new Date(a.at));
   wall = wall.slice(0, WALL_LIMIT);
 
