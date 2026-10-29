@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-29T09:43:54.103Z",
-  "checkedAt": "2026-10-29T14:56:08.901Z",
+  "updatedAt": "2026-10-29T18:01:39.305Z",
+  "checkedAt": "2026-10-29T18:01:39.305Z",
   "people": {
     "aaron-mojica": {
       "raised": 628,
@@ -8,9 +8,9 @@
       "donors": 28
     },
     "kobie-corsino": {
-      "raised": 250,
+      "raised": 400,
       "target": 2990,
-      "donors": 9
+      "donors": 10
     },
     "lui-papena": {
       "raised": 30,
@@ -19,6 +19,14 @@
     }
   },
   "wall": [
+    {
+      "id": "17381642",
+      "name": "Anonymous",
+      "msg": "Gowarn lad",
+      "amount": null,
+      "to": "Kobie",
+      "at": "2026-10-29T18:00:45Z"
+    },
     {
       "id": "17378240",
       "name": "Esperanza A.",
