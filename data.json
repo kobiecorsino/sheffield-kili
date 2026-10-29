@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-29T18:01:39.305Z",
-  "checkedAt": "2026-10-29T18:01:39.305Z",
+  "updatedAt": "2026-10-29T19:44:09.932Z",
+  "checkedAt": "2026-10-29T19:44:09.932Z",
   "people": {
     "aaron-mojica": {
       "raised": 628,
@@ -8,9 +8,9 @@
       "donors": 28
     },
     "kobie-corsino": {
-      "raised": 400,
+      "raised": 420,
       "target": 2990,
-      "donors": 10
+      "donors": 11
     },
     "lui-papena": {
       "raised": 30,
@@ -19,6 +19,14 @@
     }
   },
   "wall": [
+    {
+      "id": "17382002",
+      "name": "MIklyanne B.",
+      "msg": "goodluck Kobie!👍🏻",
+      "amount": 20,
+      "to": "Kobie",
+      "at": "2026-10-29T19:02:47Z"
+    },
     {
       "id": "17381642",
       "name": "Anonymous",
