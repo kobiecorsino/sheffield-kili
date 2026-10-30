@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-30T11:44:04.458Z",
-  "checkedAt": "2026-10-30T19:18:24.256Z",
+  "updatedAt": "2026-10-30T20:10:33.531Z",
+  "checkedAt": "2026-10-30T20:10:33.531Z",
   "people": {
     "aaron-mojica": {
       "raised": 643,
@@ -8,14 +8,14 @@
       "donors": 29
     },
     "kobie-corsino": {
-      "raised": 420,
+      "raised": 425,
       "target": 2990,
-      "donors": 11
+      "donors": 12
     },
     "lui-papena": {
-      "raised": 30,
+      "raised": 35,
       "target": 2990,
-      "donors": 2
+      "donors": 3
     }
   },
   "wall": [
