@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-01T17:44:26.149Z",
-  "checkedAt": "2026-11-02T05:52:05.279Z",
+  "updatedAt": "2026-11-02T13:29:57.457Z",
+  "checkedAt": "2026-11-02T13:29:57.457Z",
   "people": {
     "aaron-mojica": {
       "raised": 653,
@@ -8,9 +8,9 @@
       "donors": 30
     },
     "kobie-corsino": {
-      "raised": 435,
+      "raised": 445,
       "target": 2990,
-      "donors": 13
+      "donors": 14
     },
     "lui-papena": {
       "raised": 39,
@@ -19,6 +19,14 @@
     }
   },
   "wall": [
+    {
+      "id": "17404754",
+      "name": "Lisa C.",
+      "msg": "Good luck Kobie! What an amazing experience for an great charity.",
+      "amount": 10,
+      "to": "Kobie",
+      "at": "2026-11-02T09:00:06Z"
+    },
     {
       "id": "17394575",
       "name": "Robert S.",
