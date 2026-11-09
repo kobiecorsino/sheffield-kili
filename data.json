@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-09T16:44:17.384Z",
-  "checkedAt": "2026-11-09T16:44:17.384Z",
+  "updatedAt": "2026-11-09T17:44:13.033Z",
+  "checkedAt": "2026-11-09T17:44:13.033Z",
   "people": {
     "aaron-mojica": {
       "raised": 653,
@@ -13,12 +13,20 @@
       "donors": 14
     },
     "lui-papena": {
-      "raised": 54,
+      "raised": 59,
       "target": 2990,
-      "donors": 5
+      "donors": 6
     }
   },
   "wall": [
+    {
+      "id": "17459472",
+      "name": "Ewan W.",
+      "msg": "Good luck lads",
+      "amount": 5,
+      "to": "Lui",
+      "at": "2026-11-09T16:50:36Z"
+    },
     {
       "id": "17404754",
       "name": "Lisa C.",
