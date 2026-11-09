@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-02T13:29:57.457Z",
-  "checkedAt": "2026-11-09T13:45:28.374Z",
+  "updatedAt": "2026-11-09T16:44:17.384Z",
+  "checkedAt": "2026-11-09T16:44:17.384Z",
   "people": {
     "aaron-mojica": {
       "raised": 653,
@@ -13,9 +13,9 @@
       "donors": 14
     },
     "lui-papena": {
-      "raised": 39,
+      "raised": 54,
       "target": 2990,
-      "donors": 4
+      "donors": 5
     }
   },
   "wall": [
