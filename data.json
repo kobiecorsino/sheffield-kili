@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-11-13T11:44:15.428Z",
-  "checkedAt": "2026-11-13T11:44:15.428Z",
+  "updatedAt": "2026-11-14T10:44:56.712Z",
+  "checkedAt": "2026-11-14T10:44:56.712Z",
   "people": {
     "aaron-mojica": {
-      "raised": 813,
+      "raised": 848,
       "target": 2990,
-      "donors": 33
+      "donors": 37
     },
     "kobie-corsino": {
       "raised": 445,
@@ -19,6 +19,14 @@
     }
   },
   "wall": [
+    {
+      "id": "17488206",
+      "name": "Kirzten",
+      "msg": "goodluck!",
+      "amount": 10,
+      "to": "Aaron",
+      "at": "2026-11-13T11:45:53Z"
+    },
     {
       "id": "17488178",
       "name": "Elisha M.",
